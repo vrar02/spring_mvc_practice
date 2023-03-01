@@ -4,6 +4,8 @@ package com.vivek.spring_mvc.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -34,6 +36,29 @@ public class HelloWorldServlet{
         modelAndView.addObject("time",new Date());
         modelAndView.setViewName("display_second");
         return  modelAndView;
+    }
+
+
+    @RequestMapping("/register")
+    public String getContact(){
+        return "register";
+    }
+
+    @RequestMapping(value = "/processRegister",method = RequestMethod.POST)
+    public String processRegisterForm(
+            @RequestParam("username") String userName,
+            @RequestParam("pwd") String password,
+            @RequestParam("email") String email,
+            @RequestParam("location") String location,Model model)
+    {
+
+        System.out.println(userName);
+        System.out.println(password);
+        System.out.println(email);
+        System.out.println(location);
+        model.addAttribute("user",userName);
+       return "register_success";
+
     }
 
 }

@@ -1,8 +1,10 @@
 package com.vivek.spring_mvc.controller;
 
 
+import com.vivek.spring_mvc.entitites.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,8 +42,13 @@ public class HelloWorldServlet{
 
 
     @RequestMapping("/register")
-    public String getContact(){
+    public String getRegister(){
         return "register";
+    }
+
+    @RequestMapping("/register2")
+    public String getRegister2(){
+        return "register2";
     }
 
     @RequestMapping(value = "/processRegister",method = RequestMethod.POST)
@@ -59,6 +66,16 @@ public class HelloWorldServlet{
         model.addAttribute("user",userName);
        return "register_success";
 
+    }
+
+    @RequestMapping(value = "/processRegister2",method = RequestMethod.POST)
+    public String processRegister2(@ModelAttribute("user") User user2){
+        //Here ModelAttribute by default will place the user2 object inside model with key as "user"
+        System.out.println(user2.getUserName());
+        System.out.println(user2.getEmail());
+        System.out.println(user2.getLocation());
+        System.out.println(user2.getPassword());
+        return "register_success_2";
     }
 
 }

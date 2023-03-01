@@ -9,6 +9,9 @@
 
 <h3><a href="register2">This is user registration page 2</a>...to test @ModelAttribute("param")..send data from Register form to controller</h3>
 
+<h3><a href="one">This is for redirect testing</a> ..using "redirect:/enjoy".....click /one will redirect to /two</h3>
+
+<h3><a href="three">This is for redirect testing</a> ..using RedirectView object....click /three will redirect to /four</h3>
 
 </body>
 </html>

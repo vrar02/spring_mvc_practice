@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -76,6 +78,35 @@ public class HelloWorldServlet{
         System.out.println(user2.getLocation());
         System.out.println(user2.getPassword());
         return "register_success_2";
+    }
+
+    @RequestMapping("/one")
+    public String one(){
+        System.out.println("in method one...");
+        //Here relative or absolute both working same way...
+        return "redirect:two";
+    }
+
+    @RequestMapping("/two")
+    public String two(){
+        System.out.println("in method two...");
+        return "index";
+    }
+
+    @RequestMapping("/three")
+    public RedirectView three(){
+        System.out.println("in method three");
+        RedirectView redirectView=new RedirectView();
+//        Here the url we need to set the relative one...not the absolute one..
+//        if absolute is set it will not consider the application context..
+        redirectView.setUrl("four");
+        return redirectView;
+    }
+
+    @RequestMapping("/four")
+    public String four(){
+        System.out.println("in method four");
+        return "index";
     }
 
 }

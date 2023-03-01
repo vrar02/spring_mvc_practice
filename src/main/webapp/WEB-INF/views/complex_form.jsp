@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="spring_form_tag" uri="http://www.springframework.org/tags/form" %>
+
 <html>
 <head>
     <title>Complex Form</title>
@@ -28,6 +30,12 @@
 <%--6)Radio button--%>
 <%--7)dropdown select only one..--%>
 <div class="center">
+
+
+    <spring_form_tag:errors path="complex_form.*">
+
+    </spring_form_tag:errors>
+
 
 <form action="processComplexForm" method="post">
     <label>UserName:</label><input name="username" type="text"><br>

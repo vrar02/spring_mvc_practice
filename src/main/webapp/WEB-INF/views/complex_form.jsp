@@ -32,7 +32,7 @@
 <form action="processComplexForm" method="post">
     <label>UserName:</label><input name="username" type="text"><br>
     <label>Id:</label><input name="id" type="text"><br>
-    <label>Date of birth:</label><input name="dob" value="dd/mm/yyyy" type="text"><br>
+    <label>Date of birth:</label><input name="dob1" type="date"><br>
 
 
     <select id="cars" name="cars" size="4" multiple>

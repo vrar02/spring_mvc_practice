@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
@@ -114,10 +116,19 @@ public class HelloWorldServlet{
     }
 
     @RequestMapping(value = "/processComplexForm",method =RequestMethod.POST )
-    public String complexForm(@ModelAttribute("complex_form")ComplexForm complexForm){
+    public String complexForm(@ModelAttribute("complex_form")ComplexForm complexForm,HttpServletRequest request){
 
 //        Map parameterMap = request.getParameterMap();
 //        parameterMap.forEach((key, value) -> System.out.println(key + ": " + Arrays.toString(request.getParameterValues((String) key))));
+        String dob1 = request.getParameter("dob1");
+        System.out.println(dob1);
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date cDate = df.parse(dob1);
+            complexForm.setDob(cDate);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         return "success_complex";
     }
 

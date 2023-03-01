@@ -1,6 +1,7 @@
 package com.vivek.spring_mvc.controller;
 
 
+import com.vivek.spring_mvc.entitites.ComplexForm;
 import com.vivek.spring_mvc.entitites.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class HelloWorldServlet{
@@ -107,6 +106,19 @@ public class HelloWorldServlet{
     public String four(){
         System.out.println("in method four");
         return "index";
+    }
+
+    @RequestMapping("/complexForm")
+    public String getComplexForm(){
+        return "complex_form";
+    }
+
+    @RequestMapping(value = "/processComplexForm",method =RequestMethod.POST )
+    public String complexForm(@ModelAttribute("complex_form")ComplexForm complexForm){
+
+//        Map parameterMap = request.getParameterMap();
+//        parameterMap.forEach((key, value) -> System.out.println(key + ": " + Arrays.toString(request.getParameterValues((String) key))));
+        return "success_complex";
     }
 
 }

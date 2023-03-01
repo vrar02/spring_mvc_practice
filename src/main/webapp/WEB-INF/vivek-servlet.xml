@@ -10,6 +10,12 @@
        http://www.springframework.org/schema/mvc
        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+<!-- Basically to map all the urls of pattern
+ex: "resources/images/temp.png" with the location..not the controller-->
+<!-- the acutal url in web page would be https://localhost:port/application-context-path/resources/images/temp.png-->
+    <mvc:annotation-driven/>
+    <mvc:resources mapping="resources/**" location="WEB-INF/resources/"/>
+
 
     <context:annotation-config/>
     <context:component-scan base-package="com.vivek.spring_mvc"/>

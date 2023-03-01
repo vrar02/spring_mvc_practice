@@ -20,6 +20,8 @@
 <h3>Dob: ${complex_form.dob}</h3>
 <h3>Gender: ${complex_form.gender}</h3>
 <h3>Technology: ${complex_form.technology}</h3>
+<h3>Location: ${complex_form.address.location}</h3>
+<h3>Street: ${complex_form.address.street}</h3>
 
 
 

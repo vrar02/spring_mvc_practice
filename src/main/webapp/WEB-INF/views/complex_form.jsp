@@ -63,8 +63,12 @@
         <option value="devops">Devops</option>
         <option value="front end">Front end</option>
     </select>
-
     <br>
+
+    <hr>
+    Street:<input name="address.street" type="text"><br>
+    Location:<input name="address.location" type="text"><br>
+
 
     <button type="submit">Submit</button>
 

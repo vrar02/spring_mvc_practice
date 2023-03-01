@@ -15,6 +15,8 @@ public class ComplexForm {
     private String gender;
     private String technology;
 
+    private Address address;
+
     public ComplexForm() {
     }
 
@@ -88,5 +90,13 @@ public class ComplexForm {
 
     public void setTechnology(String technology) {
         this.technology = technology;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

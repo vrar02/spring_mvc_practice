@@ -21,5 +21,10 @@
 
 <h3> <a href="fileUploadForm">Click</a> to get File upload page</h3>
 
+<h3><a href="test_exception">Click</a> For Testing exception</h3>
+
+<h3><a href="test/34">Click</a> For Testing path variable annotation..</h3>
+
+
 </body>
 </html>

@@ -6,10 +6,7 @@ import com.vivek.spring_mvc.entitites.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -175,6 +172,13 @@ public class HelloWorldServlet{
         }
 
         return "success_file_upload";
+    }
+
+    @RequestMapping("/test/{pageId}")
+    public String testPathVariable(@PathVariable("pageId") String pageId,Model model){
+
+        model.addAttribute("id",pageId);
+        return "path_variable";
     }
 
 

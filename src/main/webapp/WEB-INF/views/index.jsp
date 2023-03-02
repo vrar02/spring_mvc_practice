@@ -19,5 +19,7 @@
 
 <h3><a href="complexForm">Click</a> For Complex form</h3>
 
+<h3> <a href="fileUploadForm">Click</a> to get File upload page</h3>
+
 </body>
 </html>

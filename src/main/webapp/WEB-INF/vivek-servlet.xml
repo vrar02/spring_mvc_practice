@@ -27,5 +27,11 @@ ex: "resources/images/temp.png" with the location..not the controller-->
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <bean name="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+<!--        setting max upload size limit to 1000bytes 1mb-->
+        <property name="maxUploadSize" value="1000" />
+    </bean>
+
 
 </beans>

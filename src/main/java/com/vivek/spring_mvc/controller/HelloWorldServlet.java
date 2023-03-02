@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -138,6 +141,42 @@ public class HelloWorldServlet{
         }
         return "success_complex";
     }
+
+    @RequestMapping("/fileUploadForm")
+    public String getFileUpload(){
+        return "file_upload";
+    }
+
+    @RequestMapping(value = "/fileProcess",method = RequestMethod.POST)
+    public String processFileUploadForm(@RequestParam("file_data")CommonsMultipartFile file,
+                                        @RequestParam("company") String company,
+                                        HttpServletRequest request, HttpSession session,
+                                        Model model
+                                        ){
+
+        byte[] bytes = file.getBytes();
+
+        String contextPath = request.getContextPath();
+        System.out.println(contextPath);
+
+        String filePath= session.getServletContext().getRealPath("/") +"WEB-INF"+
+                File.separator+"resources"+File.separator+file.getOriginalFilename();
+        System.out.println(filePath);
+        System.out.println(file.getName());
+        System.out.println(company);
+        try {
+            FileOutputStream fileOutputStream=new FileOutputStream(filePath);
+            fileOutputStream.write(bytes);
+            fileOutputStream.close();
+            model.addAttribute("msg","File uploaded successfully of company");
+            model.addAttribute("comp",company);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "success_file_upload";
+    }
+
 
 }
 

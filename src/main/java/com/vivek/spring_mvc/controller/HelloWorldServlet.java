@@ -3,6 +3,7 @@ package com.vivek.spring_mvc.controller;
 
 import com.vivek.spring_mvc.entitites.ComplexForm;
 import com.vivek.spring_mvc.entitites.User;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -179,6 +180,21 @@ public class HelloWorldServlet{
 
         model.addAttribute("id",pageId);
         return "path_variable";
+    }
+
+    @RequestMapping("/test_exception")
+    public String testException(){
+        String s=null;
+        System.out.println(s.length()); //this will raise exception
+        return "index";
+    }
+
+//    This method gets invoked when nullpointer or number format exception occurs in this controller
+    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(value = {NullPointerException.class,NumberFormatException.class})
+    public String getExceptionPage(Model model){
+        model.addAttribute("msg","Null pointer or number format occurred");
+        return "exception_page";
     }
 
 

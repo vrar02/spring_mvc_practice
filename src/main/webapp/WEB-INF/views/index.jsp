@@ -23,6 +23,8 @@
 
 <h3><a href="test_exception">Click</a> For Testing exception</h3>
 
+<h3><a href="central_exception">Click</a> For Testing Central exception..</h3>
+
 <h3><a href="test/34">Click</a> For Testing path variable annotation..</h3>
 
 

@@ -16,6 +16,14 @@ ex: "resources/images/temp.png" with the location..not the controller-->
     <mvc:annotation-driven/>
     <mvc:resources mapping="resources/**" location="WEB-INF/resources/"/>
 
+<!--    To configure mvc interceptor or filter...-->
+    <mvc:interceptors>
+       <mvc:interceptor>
+           <mvc:mapping path="/test_interceptor"/>
+           <bean class="com.vivek.spring_mvc.interceptors.MyHandlerInterceptor"/>
+       </mvc:interceptor>
+    </mvc:interceptors>
+
 
     <context:annotation-config/>
     <context:component-scan base-package="com.vivek.spring_mvc"/>
@@ -32,6 +40,7 @@ ex: "resources/images/temp.png" with the location..not the controller-->
 <!--        setting max upload size limit to 1000bytes 1mb-->
         <property name="maxUploadSize" value="1000" />
     </bean>
+
 
 
 </beans>

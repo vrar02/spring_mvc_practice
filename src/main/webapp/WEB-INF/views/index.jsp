@@ -27,6 +27,12 @@
 
 <h3><a href="test/34">Click</a> For Testing path variable annotation..</h3>
 
+<div>
+<form action="test_interceptor" method="post">
+    Enter Email:<input name="email" type="text"><br>
+    <button type="submit">Click</button> to test interceptor...
+</form>
+</div>
 
 </body>
 </html>
